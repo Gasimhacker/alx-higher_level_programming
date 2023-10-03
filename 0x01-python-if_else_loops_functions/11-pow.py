@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-def add(a, b):
+def pow(a, b):
     """Raise a to the power of b."""
 
     return (a ** b)
