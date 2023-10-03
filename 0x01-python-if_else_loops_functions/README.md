@@ -1,4 +1,4 @@
-#0x01-python-if_else_loops_functions 
+# 0x01-python-if_else_loops_functions 
  This directory contains a collection of Python scripts that focus on topics such as conditional statements, loops, and functions. Each script addresses a specific task or problem to be solved. Here's a brief description of the tasks within this directory:
 
 1. 0-positive_or_negative.py: This script generates a random number and determines whether it is positive, negative, or zero.
