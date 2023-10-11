@@ -6,5 +6,3 @@ def square_matrix_simple(matrix=[]):
     for a_list in matrix:
         sqr_matrix.append([x ** 2 for x in a_list])
     return sqr_matrix
-
-
