@@ -4,7 +4,5 @@ def best_score(a_dictionary):
 
     if a_dictionary is None:
         return None
-    maximum = max(a_dictionary.values())
-    for k, v in a_dictionary.items():
-        if v == maximum:
-            return k
+    a = sorted(a_dictionary.keys())
+    return a[len(a) - 1]
