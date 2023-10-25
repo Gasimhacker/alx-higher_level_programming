@@ -35,8 +35,8 @@ class Square:
 
         return (self.__position)
 
-    @size.setter
-    def size(self, value):
+    @position.setter
+    def position(self, value):
         """Change the position"""
 
         if (not isinstance(value, tuple) or
@@ -63,6 +63,4 @@ class Square:
             print()
 
         for i in range(self.__size):
-            print(" " * self.__position[0], end="")
-            print("#" * self.__size, end="")
-            print()
+            print(" " * self.__position[0], "#" * self.__size)
