@@ -41,7 +41,7 @@ Passing an empty list will raise a type error
 		...
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-But passing an empty list of lists will succed
+But passing an empty list of lists will succeed
 	>>> matrix_divided([[]], 2)
 	[[]]
 
