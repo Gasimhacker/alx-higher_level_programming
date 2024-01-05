@@ -48,7 +48,8 @@ class Rectangle:
         self.__height = value
 
     def __str__(self):
-        """A method to print square when using print"""
+        """A method to make a printable representation of the rectangle"""
+
         shape = ""
         if self.__width == 0 or self.__height == 0:
             return shape
@@ -58,6 +59,11 @@ class Rectangle:
             if (row != (self.__height - 1)):
                 shape += "\n"
         return shape
+
+    def __repr__(self):
+        """A method to represent a rectangle object"""
+
+        return f"Rectangle({self.__width}, {self.__height})"
 
     def area(self):
         """ Compute the area of the Rectangle object"""
