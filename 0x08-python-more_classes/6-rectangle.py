@@ -7,11 +7,14 @@ with a specific width an hieght"""
 class Rectangle:
     """ A class that defines a Rectangle with specific width and height"""
 
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """Initialize the Rectangle class"""
 
         self.width = width
         self.height = height
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -69,6 +72,7 @@ class Rectangle:
         """ Print a Goodbye message"""
 
         print("Bye rectangle...")
+        type(self).number_of_instances -= 1
 
     def area(self):
         """ Compute the area of the Rectangle object"""
