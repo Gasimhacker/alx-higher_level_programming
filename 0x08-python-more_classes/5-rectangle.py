@@ -7,7 +7,6 @@ with a specific width an hieght"""
 class Rectangle:
     """ A class that defines a Rectangle with specific width and height"""
 
-
     def __init__(self, width=0, height=0):
         """Initialize the Rectangle class"""
 
