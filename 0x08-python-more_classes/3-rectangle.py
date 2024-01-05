@@ -50,6 +50,8 @@ class Rectangle:
     def __str__(self):
         """A method to print square when using print"""
         shape = ""
+        if self.__width == 0 or self.__height == 0:
+            return shape
         for row in range(self.__height):
             for col in range(self.__width):
                 shape += "#"
