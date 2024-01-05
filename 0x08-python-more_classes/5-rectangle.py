@@ -65,6 +65,11 @@ class Rectangle:
 
         return f"Rectangle({self.__width}, {self.__height})"
 
+    def __del__(self):
+        """ Print a Goodbye message"""
+
+        print("Bye rectangle...")
+
     def area(self):
         """ Compute the area of the Rectangle object"""
 
