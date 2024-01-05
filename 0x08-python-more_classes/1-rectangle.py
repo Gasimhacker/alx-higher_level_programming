@@ -37,7 +37,7 @@ class Rectangle:
         return (self.__height)
 
     @height.setter
-    def width(self, value):
+    def height(self, value):
         """ Set a new value for the height"""
 
         if not isinstance(value, int):
