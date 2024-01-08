@@ -22,6 +22,12 @@ Passing a number
 		...
 	TypeError: first_name must be a string
 
+Passing a number in the second field
+	>>> say_my_name("White", 12)
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
+
 Passing None
 	>>> say_my_name(None, "name")
 	Traceback (most recent call last):
