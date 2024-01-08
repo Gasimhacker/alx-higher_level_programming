@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 
-This module contains of a function that adds two integers only
+This module contains a function that Print a square using
+the '#' character
 
 """
 
@@ -9,17 +10,15 @@ This module contains of a function that adds two integers only
 def print_square(size):
     """
 
-    Function that adds two integer and/or float numbers
-    if the number is float it will be casted into integer
+    Function that prints a square with the '#' character
+    using the 'size' passed
 
     Args:
-        Size: The size of the square
-
-    Returns:
-        No returns
+        Size (int): The size of the square
 
     Raises:
-        TypeError: If a or b aren't integer and/or float numbers
+        TypeError: If size isn't an integer
+        ValueError: If size is less than zero
 
     """
 

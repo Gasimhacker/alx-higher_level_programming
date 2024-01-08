@@ -13,8 +13,8 @@ def add_integer(a, b=98):
     if the number is float it will be casted into integer
 
     Args:
-        a: first number
-        b: second number
+        a (int/float): first number
+        b (int/float): second number
 
     Returns:
         The addistion result
