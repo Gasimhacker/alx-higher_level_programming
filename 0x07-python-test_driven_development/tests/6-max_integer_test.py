@@ -39,4 +39,3 @@ class TestMaxInt(unittest.TestCase):
         """ Test an empty list"""
         self.assertEqual(max_integer([]), None)
         self.assertEqual(max_integer(""), None)
-
