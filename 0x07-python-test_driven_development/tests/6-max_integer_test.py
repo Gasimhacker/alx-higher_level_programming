@@ -13,6 +13,14 @@ class TestMaxInt(unittest.TestCase):
         """ Test integers only """
         self.assertEqual(max_integer([1, 5, 66, -10]), 66)
 
+    def test_unordered(self):
+        """Test an orderd list"""
+        self.assertEqual(max_integer([4, 3, 2, 1]), 4)
+
+    def test_one_element(self):
+        """Test passing single element"""
+        self.assertEqual(max_integer([5]), 5)
+
     def test_ints_floats(self):
         """ Test integers combined with floats"""
         self.assertEqual(max_integer([1, 5, 6.66, -10]), 6.66)
