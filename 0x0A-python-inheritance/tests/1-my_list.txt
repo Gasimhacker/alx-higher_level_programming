@@ -51,3 +51,19 @@ case 4: Passing an empty list
 	[]
 
 ----------------------------------------------------------------
+
+case 4: Passing only one element
+	>>> one = MyList([1])
+	>>> one.print_sorted()
+	[1]
+
+----------------------------------------------------------------
+
+case 6: Calling a child method from the parent class
+	>>> parent = [1, 2, 3]
+	>>> parent.print_sorted()
+	Traceback (most recent call last):
+		...
+	AttributeError: 'list' object has no attribute 'print_sorted'
+
+----------------------------------------------------------------
