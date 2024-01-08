@@ -1,0 +1,53 @@
+=========================
+How to use "1-my_list.py"
+=========================
+
+----------------------------------------------------------------
+
+Importing the class:
+	>>> MyList = __import__('1-my_list').MyList
+
+----------------------------------------------------------------
+Case 1: Normal usage
+	>>> my_list = MyList()
+
+Using the methods defined in the list class:
+	>>> my_list.append(1)
+	>>> my_list.pop()
+	1
+	>>> my_list
+	[]
+	>>> my_list.append(1)
+	>>> my_list.append(2)
+	>>> my_list.append(3)
+	>>> my_list.append(-1)
+	>>> my_list.index(3)
+	2
+	>>> my_list.remove(3)
+	>>> my_list
+	[1, 2, -1]
+	>>> my_list.print_sorted()
+	[-1, 1, 2]
+
+----------------------------------------------------------------
+
+Case 2: Calling the parent init method:
+	>>> my_list = MyList([1, 2, 3])
+	>>> my_list
+	[1, 2, 3]
+
+----------------------------------------------------------------
+
+Case 3: sorting a list with the same number:
+	>>> my_list2 = MyList([1, 1, 1])
+	>>> my_list2.print_sorted()
+	[1, 1, 1]
+
+----------------------------------------------------------------
+
+case 4: Passing an empty list
+	>>> empty_list = MyList([])
+	>>> empty_list
+	[]
+
+----------------------------------------------------------------
