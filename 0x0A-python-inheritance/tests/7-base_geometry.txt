@@ -97,7 +97,7 @@ case 9: Passing a dict as the value
 ----------------------------------------------------------------
 
 
-case 0: Calling the method with no arguments
+case 10: Calling the method with no arguments
 	>>> bg.integer_validator()
 	Traceback (most recent call last):
 		...
@@ -110,6 +110,15 @@ case 11: Calling the method with one argument
 	Traceback (most recent call last):
 		...
 	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+----------------------------------------------------------------
+
+case 12: The method assumes the `name` parameter is a string
+	 but will print the parameter even if it is not
+	>>> bg.integer_validator({'A': 'dict'}, {"dict": 1})
+	Traceback (most recent call last):
+		...
+	TypeError: {'A': 'dict'} must be an integer
 
 ----------------------------------------------------------------
 
