@@ -62,7 +62,7 @@ case 5: Passing only one element
 	>>> one = MyList([1])
 	>>> one.print_sorted()
 	[1]
-	>>> print(my_list)
+	>>> print(one)
 	[1]
 
 ----------------------------------------------------------------
