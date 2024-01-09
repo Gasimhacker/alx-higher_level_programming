@@ -43,6 +43,7 @@ Case 4: Passing a negative value
 	Traceback (most recent call last):
 		...
 	ValueError: distance must be greater than 0
+
 ----------------------------------------------------------------
 
 Case 5: Passing a boolean value will raise a type error although
