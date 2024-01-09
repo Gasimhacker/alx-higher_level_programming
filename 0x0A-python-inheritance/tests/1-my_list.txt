@@ -37,10 +37,10 @@ Using the methods defined in the list class:
 
 Case 2: Calling the parent init method:
 	>>> my_list = MyList([1, 5, 2])
-	>>> print(my_list)
-	[1, 5, 2]
 	>>> my_list.print_sorted()
 	[1, 2, 5]
+	>>> print(my_list)
+	[1, 5, 2]
 
 ----------------------------------------------------------------
 
@@ -92,9 +92,9 @@ Case 9: Unorderd negative numbers:
 	>>> my_list.append(10)
 	>>> my_list.append(-13)
 	>>> my_list.append(-1)
-	>>> print(my_list)
-	[1, -9, 10, -13, -1]
 	>>> my_list.print_sorted()
 	[-13, -9, -1, 1, 10]
+	>>> print(my_list)
+	[1, -9, 10, -13, -1]
 
 ----------------------------------------------------------------
