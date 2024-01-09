@@ -1,18 +1,12 @@
 #!/usr/bin/python3
-
-
-"""A module defining the "MyInt" class"""
+""" class MyInt that inherits from int:
+"""
 
 
 class MyInt(int):
-    """MyInt class"""
+    """ Class """
+    def __eq__(self, other):
+        return int(str(self)) != other
 
-    def __eq__(self, other)
-    """Return true if two instances are not equal"""
-
-    return (int(str(self)) != int(str(other)))
-
-    def __ne__(self, other)
-    """Return true if two instances are not equal"""
-
-    return (int(str(self)) == int(str(other)))
+    def __ne__(self, other):
+        return int(str(self)) == other
