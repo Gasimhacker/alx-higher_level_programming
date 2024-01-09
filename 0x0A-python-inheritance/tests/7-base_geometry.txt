@@ -88,7 +88,16 @@ case 8: Passing None as the value
 
 ----------------------------------------------------------------
 
-case 9: Calling the method with no arguments
+case 9: Passing a dict as the value
+	>>> bg.integer_validator("A dict", {"dict": 1})
+	Traceback (most recent call last):
+		...
+	TypeError: A dict must be an integer
+
+----------------------------------------------------------------
+
+
+case 0: Calling the method with no arguments
 	>>> bg.integer_validator()
 	Traceback (most recent call last):
 		...
@@ -96,14 +105,13 @@ case 9: Calling the method with no arguments
 
 ----------------------------------------------------------------
 
-case 10: Calling the method with one argument
+case 11: Calling the method with one argument
 	>>> bg.integer_validator("one arg")
 	Traceback (most recent call last):
 		...
 	TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 ----------------------------------------------------------------
-
 
 =======================================================
 Testing the integer_validator(self, name, value) method
