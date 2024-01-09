@@ -28,7 +28,7 @@ Using the methods defined in the list class:
 	>>> my_list.index(3)
 	2
 	>>> my_list.remove(3)
-	>>> my_list
+	>>> print(my_list)
 	[1, 2, 7]
 	>>> my_list.print_sorted()
 	[1, 2, 7]
@@ -36,9 +36,11 @@ Using the methods defined in the list class:
 ----------------------------------------------------------------
 
 Case 2: Calling the parent init method:
-	>>> my_list = MyList([1, 2, 3])
-	>>> my_list
-	[1, 2, 3]
+	>>> my_list = MyList([1, 5, 2])
+	>>> print(my_list)
+	[1, 5, 2]
+	>>> my_list.print_sorted()
+	[1, 2, 5]
 
 ----------------------------------------------------------------
 
@@ -81,7 +83,7 @@ case 7: Passing a list of different types
 
 ----------------------------------------------------------------
 
-Case 7: Unorderd negative numbers:
+Case 9: Unorderd negative numbers:
 	>>> my_list = MyList()
 	>>> my_list.append(1)
 	>>> my_list.append(-9)
