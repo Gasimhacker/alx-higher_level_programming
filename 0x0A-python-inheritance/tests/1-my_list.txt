@@ -28,9 +28,9 @@ Using the methods defined in the list class:
 	>>> my_list.index(3)
 	2
 	>>> my_list.remove(3)
-	>>> print(my_list)
-	[1, 2, 7]
 	>>> my_list.print_sorted()
+	[1, 2, 7]
+	>>> print(my_list)
 	[1, 2, 7]
 
 ----------------------------------------------------------------
@@ -61,6 +61,8 @@ case 4: Passing an empty list
 case 5: Passing only one element
 	>>> one = MyList([1])
 	>>> one.print_sorted()
+	[1]
+	>>> print(my_list)
 	[1]
 
 ----------------------------------------------------------------
