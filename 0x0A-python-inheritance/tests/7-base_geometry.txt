@@ -9,6 +9,17 @@ Importing the class:
 
 ----------------------------------------------------------------
 
+Instantiating the BaseGeometry with any argument will raise
+a TypeError
+	>>> bg = BaseGeometry(None)
+	Traceback (most recent call last):
+		...
+	TypeError: BaseGeometry() takes no arguments
+
+----------------------------------------------------------------
+
+Case 2: Passing a string as the value
+
 =======================================================
 Testing the integer_validator(self, name, value) method
 =======================================================
