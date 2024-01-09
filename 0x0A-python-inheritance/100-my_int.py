@@ -6,7 +6,7 @@
 class MyInt(int):
     """ Class """
     def __eq__(self, other):
-        return self != other
+        return int(self) != other
 
     def __ne__(self, other):
-        return self == other
+        return int(self) == other
