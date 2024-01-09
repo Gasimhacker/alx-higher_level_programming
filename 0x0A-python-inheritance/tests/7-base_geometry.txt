@@ -55,6 +55,7 @@ Case 5: Passing a boolean value will raise a type error although
 	TypeError: bool must be an integer
 
 ----------------------------------------------------------------
+
 case 6: Passing a float as the value
 	>>> bg.integer_validator("nb", 3.5)
 	Traceback (most recent call last):
@@ -62,6 +63,23 @@ case 6: Passing a float as the value
 	TypeError: nb must be an integer
 
 ----------------------------------------------------------------
+
+case 6: Passing a tuple as the value
+	>>> bg.integer_validator("tp", (3, 4))
+	Traceback (most recent call last):
+		...
+	TypeError: tp must be an integer
+
+----------------------------------------------------------------
+
+case 7: Passing a list as the value
+	>>> bg.integer_validator("ls", [])
+	Traceback (most recent call last):
+		...
+	TypeError: ls must be an integer
+
+----------------------------------------------------------------
+
 
 =======================================================
 Testing the integer_validator(self, name, value) method
