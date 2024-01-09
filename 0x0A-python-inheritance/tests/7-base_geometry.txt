@@ -124,7 +124,16 @@ case 11: Calling the method with one argument
 
 ----------------------------------------------------------------
 
-case 12: The method assumes the `name` parameter is a string
+case 12: Calling the method with more than 2 arguments
+	>>> bg.integer_validator("arg2", 3, 4)
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+----------------------------------------------------------------
+
+
+case 13: The method assumes the `name` parameter is a string
 	 but will print the parameter even if it is not
 	>>> bg.integer_validator({'A': 'dict'}, {"dict": 1})
 	Traceback (most recent call last):
