@@ -88,6 +88,22 @@ case 8: Passing None as the value
 
 ----------------------------------------------------------------
 
+case 9: Calling the method with no arguments
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+----------------------------------------------------------------
+
+case 10: Calling the method with one argument
+	>>> bg.integer_validator("one arg")
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+----------------------------------------------------------------
+
 
 =======================================================
 Testing the integer_validator(self, name, value) method
