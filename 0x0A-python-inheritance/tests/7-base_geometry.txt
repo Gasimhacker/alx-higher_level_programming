@@ -80,6 +80,14 @@ case 7: Passing a list as the value
 
 ----------------------------------------------------------------
 
+case 8: Passing None as the value
+	>>> bg.integer_validator("Var", None)
+	Traceback (most recent call last):
+		...
+	TypeError: Var must be an integer
+
+----------------------------------------------------------------
+
 
 =======================================================
 Testing the integer_validator(self, name, value) method
