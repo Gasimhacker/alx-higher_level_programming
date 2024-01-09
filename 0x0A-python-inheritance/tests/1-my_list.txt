@@ -52,7 +52,7 @@ case 4: Passing an empty list
 
 ----------------------------------------------------------------
 
-case 4: Passing only one element
+case 5: Passing only one element
 	>>> one = MyList([1])
 	>>> one.print_sorted()
 	[1]
@@ -67,3 +67,23 @@ case 6: Calling a child method from the parent class
 	AttributeError: 'list' object has no attribute 'print_sorted'
 
 ----------------------------------------------------------------
+
+case 5: Passing a list of different types
+	>>> one = MyList([1, "string"])
+	>>> one.print_sorted()
+	Traceback (most recent call last):
+		...
+	TypeError: '<' not supported between instances of 'str' and 'int'
+
+----------------------------------------------------------------
+
+case 6: Passing a list of different types
+	>>> one = MyList([1, "string"])
+	>>> one.print_sorted()
+	Traceback (most recent call last):
+		...
+	TypeError: '<' not supported between instances of 'str' and 'int'
+
+----------------------------------------------------------------
+
+case 6: Calling a child method from the parent class
