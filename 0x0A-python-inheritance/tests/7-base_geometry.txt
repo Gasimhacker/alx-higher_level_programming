@@ -84,7 +84,7 @@ case 6: Passing a tuple as the value
 ----------------------------------------------------------------
 
 case 7: Passing a list as the value
-	>>> bg.integer_validator("ls", [])
+	>>> bg.integer_validator("ls", [1, 2])
 	Traceback (most recent call last):
 		...
 	TypeError: ls must be an integer
