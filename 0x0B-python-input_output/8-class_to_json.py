@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-"""This module contains a function that Deserialize
-a JSON file to a python object"""
+"""This module contains a function that returns the
+dictionary description of an object"""
 
 
 def class_to_json(obj):
