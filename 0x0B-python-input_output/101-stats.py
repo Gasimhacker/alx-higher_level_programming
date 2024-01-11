@@ -20,16 +20,27 @@ if __name__ == "__main__":
     from sys import stdin
 
     file_size = 0
-    status_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
-                    "403": 0, "404": 0, "405": 0, "500": 0}
+    status_codes = {}
+    valid_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
     lines = 0
 
     try:
         for line in stdin:
             line = line.split(" ")
-            file_size += int(line[-1])
-            if line[-2] in status_codes:
-                status_codes[line[-2]] += 1
+
+            try:
+                file_size += int(line[-1])
+            except (IndexError, ValueError):
+                pass
+
+            try:
+                if line[-2] in valid_codes:
+                    if (status_codes.get(line[-2], -1) == -1):
+                        status_codes[line[-2]] = 1
+                    else:
+                        status_codes[line[-2]] += 1
+            except IndexError:
+                pass
 
             lines += 1
 
