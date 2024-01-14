@@ -454,23 +454,57 @@ class TestRectangle_Area(unittest.TestCase):
         self.assertEqual(r1.area(), 9)
 
 
-class TestRectangle_display(unittest.TestCase):
+class TestRectangle_stdout(unittest.TestCase):
     """Unittest to test the display of the rectangle"""
 
     @staticmethod
-    def capture_from_stdout(rect):
-        """Capture the output from the stdout to use it in testing"""
+    def capture_from_stdout(rect, method):
+        """Capture the output from the stdout to use it in testing
+
+        Args:
+            rect (Rectangle): A rectangle instance
+            method (str): The method to apply on the rectangle
+
+        Returns:
+            The captured value from stdout
+        """
         capture = StringIO()
         sys.stdout = capture
-        rect.display()
+        if method == "print":
+            print(rect)
+        elif method == "display":
+            rect.display()
         sys.stdout = sys.__stdout__
         return capture
 
     def test_display_width_height(self):
         r = Rectangle(2, 4)
-        output = self.capture_from_stdout(r).getvalue()
+        output = self.capture_from_stdout(r, "display").getvalue()
         self.assertEqual("##\n##\n##\n##\n", output)
+
+    def test_display_changed_attribute(self):
+        r = Rectangle(2, 4)
+        r.width = 3
+        r.height = 3
+        output = self.capture_from_stdout(r, "display").getvalue()
+        self.assertEqual("###\n###\n###\n", output)
 
     def test_display_one_arg(self):
         with self.assertRaises(TypeError):
             Rectangle(4, 5).display(3)
+
+    def test_str_print_width_height(self):
+        r = Rectangle(2, 4, 6, 8, 10)
+        actual = self.capture_from_stdout(r, "print").getvalue()
+        expected = "[Rectangle] (10) 6/8 - 2/4\n"
+        self.assertEqual(expected, actual)
+
+    def test_str_changed_attribute(self):
+        r = Rectangle(2, 4, 6, 8, 10)
+        r.width = 3
+        r.height = 3
+        self.assertEqual("[Rectangle] (10) 6/8 - 3/3", str(r))
+
+    def test_str_one_arg(self):
+        with self.assertRaises(TypeError):
+            Rectangle(4, 5).__str__(1)
