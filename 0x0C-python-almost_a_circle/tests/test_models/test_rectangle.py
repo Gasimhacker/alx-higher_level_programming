@@ -16,6 +16,8 @@ Unittest Classes:
 """
 
 import unittest
+import sys
+from io import StringIO
 from models.rectangle import Rectangle
 from models.base import Base
 
@@ -450,3 +452,25 @@ class TestRectangle_Area(unittest.TestCase):
         r1 = Rectangle(3, 5)
         r1.height = 3
         self.assertEqual(r1.area(), 9)
+
+
+class TestRectangle_display(unittest.TestCase):
+    """Unittest to test the display of the rectangle"""
+
+    @staticmethod
+    def capture_from_stdout(rect):
+        """Capture the output from the stdout to use it in testing"""
+        capture = StringIO()
+        sys.stdout = capture
+        rect.display()
+        sys.stdout = sys.__stdout__
+        return capture
+
+    def test_display_width_height(self):
+        r = Rectangle(2, 4)
+        output = self.capture_from_stdout(r).getvalue()
+        self.assertEqual("##\n##\n##\n##\n", output)
+
+    def test_display_one_arg(self):
+        with self.assertRaises(TypeError):
+            Rectangle(4, 5).display(3)
