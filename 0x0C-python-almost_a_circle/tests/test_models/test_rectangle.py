@@ -12,6 +12,7 @@ Unittest Classes:
     TestRectangle_x
     TestRectangle_y
     Test_Initialization_Order
+    TestRectangle_Area
 """
 
 import unittest
@@ -429,3 +430,23 @@ class Test_Initialization_Order(unittest.TestCase):
     def text_height_before_y(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(3, 5, "invalid x", "invalid y")
+
+
+class TestRectangle_Area(unittest.TestCase):
+    """Unittests to test the area of the rectangle"""
+
+    def test_small_area(self):
+        self.assertEqual(Rectangle(3, 5).area(), 15)
+
+    def test_large_area(self):
+        a1 = Rectangle(9999999999, 9999999999).area()
+        self.assertEqual(a1, 99999999980000000001)
+
+    def test_one_arg(self):
+        with self.assertRaises(TypeError):
+            a1 = Rectangle(3, 5).area(3)
+
+    def test_attribute_changed(self):
+        r1 = Rectangle(3, 5)
+        r1.height = 3
+        self.assertEqual(r1.area(), 9)
