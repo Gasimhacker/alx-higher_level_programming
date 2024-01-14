@@ -13,6 +13,7 @@ Unittest Classes:
     TestRectangle_y
     Test_Initialization_Order
     TestRectangle_Area
+    TestRectangle_stdout
 """
 
 import unittest
@@ -482,6 +483,21 @@ class TestRectangle_stdout(unittest.TestCase):
         output = self.capture_from_stdout(r, "display").getvalue()
         self.assertEqual("##\n##\n##\n##\n", output)
 
+    def test_display_width_height_x(self):
+        r = Rectangle(2, 4, 1)
+        output = self.capture_from_stdout(r, "display").getvalue()
+        self.assertEqual(" ##\n ##\n ##\n ##\n", output)
+
+    def test_display_width_height_y(self):
+        r = Rectangle(2, 4, 0, 1)
+        output = self.capture_from_stdout(r, "display").getvalue()
+        self.assertEqual("\n##\n##\n##\n##\n", output)
+
+    def test_display_width_height_x_y(self):
+        r = Rectangle(2, 4, 1, 2)
+        output = self.capture_from_stdout(r, "display").getvalue()
+        self.assertEqual("\n\n ##\n ##\n ##\n ##\n", output)
+
     def test_display_changed_attribute(self):
         r = Rectangle(2, 4)
         r.width = 3
@@ -494,10 +510,22 @@ class TestRectangle_stdout(unittest.TestCase):
             Rectangle(4, 5).display(3)
 
     def test_str_print_width_height(self):
-        r = Rectangle(2, 4, 6, 8, 10)
+        r = Rectangle(2, 4)
         actual = self.capture_from_stdout(r, "print").getvalue()
-        expected = "[Rectangle] (10) 6/8 - 2/4\n"
+        expected = "[Rectangle] ({}) 0/0 - 2/4\n".format(r.id)
         self.assertEqual(expected, actual)
+
+    def test_str_width_height_x(self):
+        r = Rectangle(2, 4, 6)
+        self.assertEqual("[Rectangle] ({}) 6/0 - 2/4".format(r.id), str(r))
+
+    def test_str_width_height_x_y(self):
+        r = Rectangle(2, 4, 6, 8)
+        self.assertEqual("[Rectangle] ({}) 6/8 - 2/4".format(r.id), str(r))
+
+    def test_str_width_height_x_y_id(self):
+        r = Rectangle(2, 4, 6, 8, 10)
+        self.assertEqual("[Rectangle] (10) 6/8 - 2/4", str(r))
 
     def test_str_changed_attribute(self):
         r = Rectangle(2, 4, 6, 8, 10)
