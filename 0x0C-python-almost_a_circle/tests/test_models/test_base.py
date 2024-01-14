@@ -91,6 +91,9 @@ class TestBaseClass(unittest.TestCase):
     def test_frozen_set_id(self):
         self.assertEqual(Base(frozenset({5, 6})).id, frozenset({5, 6}))
 
+    def test_range_id(self):
+        self.assertEqual(Base(range(5)).id, range(5))
+
     def test_public_attribute(self):
         b1 = Base(20)
         b1.id = 25

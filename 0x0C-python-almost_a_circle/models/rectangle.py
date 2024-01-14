@@ -21,6 +21,11 @@ class Rectangle(Base):
             y (int): The y coordinate of the rectangle
             id (int): The rectangle's id
 
+        Raises:
+            TypeError: If any of the attributes is not an int
+            ValueError: If either width or height is <= 0
+            ValueError: If either x or y is < 0
+
         """
         self.width = width
         self.height = height
@@ -35,6 +40,10 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, height):
+        if type(height) is not int:
+            raise TypeError("height must be an integer")
+        if height <= 0:
+            raise ValueError("height must be > 0")
         self.__height = height
 
     @property
@@ -44,6 +53,10 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, width):
+        if type(width) is not int:
+            raise TypeError("width must be an integer")
+        if width <= 0:
+            raise ValueError("width must be > 0")
         self.__width = width
 
     @property
@@ -53,6 +66,10 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, x):
+        if type(x) is not int:
+            raise TypeError("x must be an integer")
+        if x < 0:
+            raise ValueError("x must be >= 0")
         self.__x = x
 
     @property
@@ -62,4 +79,8 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, y):
+        if type(y) is not int:
+            raise TypeError("y must be an integer")
+        if y < 0:
+            raise ValueError("y must be >= 0")
         self.__y = y
