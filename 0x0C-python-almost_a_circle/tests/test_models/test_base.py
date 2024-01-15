@@ -5,13 +5,18 @@
 
 A test module for the class Base
 
+Unittest classes:
+    TestBase_init
+    TestBase_to_json
 """
 
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
-class TestBaseClass(unittest.TestCase):
+class TestBase_init(unittest.TestCase):
 
     def test_no_arg(self):
         b1 = Base()
@@ -106,3 +111,47 @@ class TestBaseClass(unittest.TestCase):
     def test_more_args(self):
         with self.assertRaises(TypeError):
             Base(2, 5)
+
+
+class TestBase_to_json(unittest.TestCase):
+    """Unittest to test the method to_json_string of the Base class"""
+
+    def test_to_json_rectangle_type(self):
+        d = Rectangle(3, 5, 7, 9, 10).to_dictionary()
+        self.assertEqual(str, type(Base.to_json_string([d])))
+
+    def test_to_json_rectangle_one_dict(self):
+        d = Rectangle(3, 5, 7, 9, 10).to_dictionary()
+        self.assertEqual([d], eval((Base.to_json_string([d]))))
+
+    def test_to_json_rectangle_two_dict(self):
+        d1 = Rectangle(3, 5, 7, 9, 10).to_dictionary()
+        d2 = Rectangle(2, 4, 6, 8, 11).to_dictionary()
+        self.assertEqual([d1, d2], (eval(Base.to_json_string([d1, d2]))))
+
+    def test_to_json_square_type(self):
+        d = Square(3, 7, 9, 10).to_dictionary()
+        self.assertEqual(str, type(Base.to_json_string([d])))
+
+    def test_to_json_square_one_dict(self):
+        d = Square(3, 7, 9, 10).to_dictionary()
+        self.assertEqual([d], eval((Base.to_json_string([d]))))
+
+    def test_to_json_square_two_dict(self):
+        d1 = Square(3, 7, 9, 10).to_dictionary()
+        d2 = Square(2, 6, 8, 11).to_dictionary()
+        self.assertEqual([d1, d2], (eval(Base.to_json_string([d1, d2]))))
+
+    def test_to_json_empty_list(self):
+        self.assertEqual("[]", Base.to_json_string([]))
+
+    def test_to_json_None(self):
+        self.assertEqual("[]", Base.to_json_string(None))
+
+    def test_to_json_no_arg(self):
+        with self.assertRaises(TypeError):
+            Base.to_json_string()
+
+    def test_to_json_more_than_one_arg(self):
+        with self.assertRaises(TypeError):
+            Base.to_json_string([], 2)
