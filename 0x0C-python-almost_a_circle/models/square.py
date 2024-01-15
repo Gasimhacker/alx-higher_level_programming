@@ -42,8 +42,8 @@ class Square(Rectangle):
         """Return a user friendly string representation of the square"""
 
         return "[Square] ({}) {}/{} - {}".format(self.id,
-                                                       self.x, self.y,
-                                                       self.size)
+                                                 self.x, self.y,
+                                                 self.size)
 
     def update(self, *args, **kwargs):
         """Update the square attributes
@@ -54,7 +54,7 @@ class Square(Rectangle):
                 - 2nd argument represents the size attribute
                 - 3th argument represents the x attribute
                 - 4th argument represents the y attribute
-            **kwargs (dict): A dict containing the new key/val pairs 
+            **kwargs (dict): A dict containing the new key/val pairs
         """
         if args and len(args) != 0:
             for i, arg in enumerate(args):

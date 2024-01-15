@@ -22,6 +22,7 @@ import unittest
 import sys
 from io import StringIO
 from models.square import Square
+from models.rectangle import Rectangle
 from models.base import Base
 
 
@@ -30,6 +31,7 @@ class TestSquare_init(unittest.TestCase):
 
     def test_is_a_child(self):
         self.assertIsInstance(Square(5), Base)
+        self.assertIsInstance(Square(5), Rectangle)
 
     def test_no_arg(self):
         with self.assertRaises(TypeError):

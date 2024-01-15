@@ -116,7 +116,7 @@ class Rectangle(Base):
                 - 3rd argument represents the height attribute
                 - 4th argument represents the x attribute
                 - 5th argument represents the y attribute
-            **kwargs (dict): A dict containing the new key/val pairs 
+            **kwargs (dict): A dict containing the new key/val pairs
         """
         if args and len(args) != 0:
             for i, arg in enumerate(args):
@@ -147,3 +147,9 @@ class Rectangle(Base):
                     self.x = val
                 elif key == "y":
                     self.y = val
+
+    def to_dictionary(self):
+        """Return the dictionary representation of a Rectangle"""
+        rect = {'x': self.x, 'y': self.y, 'id': self.id,
+                'height': self.height, 'width': self.width}
+        return rect

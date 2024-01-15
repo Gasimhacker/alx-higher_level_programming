@@ -803,3 +803,21 @@ class TestRectangle_update_kwargs(unittest.TestCase):
         r = Rectangle(2, 4, 6, 8, 10)
         r.update(a=3, width=9, b=5, y=3, id=13)
         self.assertEqual("[Rectangle] (13) 6/3 - 9/4", str(r))
+
+
+class TestRectangle_to_dictionary(unittest.TestCase):
+
+    def test_dictionary_one_arg(self):
+        with self.assertRaises(TypeError):
+            Rectangle(3, 5).to_dictionary(3)
+
+    def test_to_dict_output(self):
+        actual = Rectangle(10, 2, 1, 9, 1).to_dictionary()
+        expected = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(actual, expected)
+
+    def test_to_dict_changed_attribute(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        r2 = Rectangle(3, 5, 7)
+        r2.update(**r1.to_dictionary())
+        self.assertEqual(r1.to_dictionary(), r2.to_dictionary())
