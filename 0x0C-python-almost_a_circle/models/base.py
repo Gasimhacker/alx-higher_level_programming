@@ -59,3 +59,18 @@ class Base:
 
         with open(f"{cls.__name__}.json", "w", encoding="UTF8") as f:
             f.write(Base.to_json_string(json_list))
+
+    def from_json_string(json_string):
+        """Deserialize the JSON string
+
+        Args:
+            json_string (str): The string to be deserialized
+
+        Returns:
+            If the list not None and not empty - a list of python objects
+            Otherwise - an empty list
+        """
+
+        if json_string is None or json_string == "[]":
+            return []
+        return json.loads(json_string)
