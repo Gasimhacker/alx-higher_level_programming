@@ -106,7 +106,7 @@ class Rectangle(Base):
                                                        self.x, self.y,
                                                        self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Update the rectangle attributes
 
         Args:
@@ -116,21 +116,34 @@ class Rectangle(Base):
                 - 3rd argument represents the height attribute
                 - 4th argument represents the x attribute
                 - 5th argument represents the y attribute
+            **kwargs (dict): A dict containing the new key/val pairs 
         """
-        if args is None or len(args) == 0:
-            return
-
-        for i, arg in enumerate(args):
-            if i == 0:
-                if arg is None:
+        if args and len(args) != 0:
+            for i, arg in enumerate(args):
+                if i == 0 and arg is None:
                     self.__init__(self.width, self.height, self.x, self.y)
-                else:
+                elif i == 0:
                     self.id = arg
-            elif i == 1:
-                self.width = arg
-            elif i == 2:
-                self.height = arg
-            elif i == 3:
-                self.x = arg
-            elif i == 4:
-                self.y = arg
+                elif i == 1:
+                    self.width = arg
+                elif i == 2:
+                    self.height = arg
+                elif i == 3:
+                    self.x = arg
+                elif i == 4:
+                    self.y = arg
+
+        elif kwargs and len(kwargs) != 0:
+            for key, val in kwargs.items():
+                if key == "id" and val is None:
+                    self.__init__(self.width, self.height, self.x, self.y)
+                elif key == "id":
+                    self.id = val
+                elif key == "width":
+                    self.width = val
+                elif key == "height":
+                    self.height = val
+                elif key == "x":
+                    self.x = val
+                elif key == "y":
+                    self.y = val
