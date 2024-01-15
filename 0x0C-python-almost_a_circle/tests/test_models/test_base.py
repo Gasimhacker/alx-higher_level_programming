@@ -11,6 +11,7 @@ Unittest classes:
 """
 
 import unittest
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -123,6 +124,7 @@ class TestBase_to_json(unittest.TestCase):
     def test_to_json_rectangle_one_dict(self):
         d = Rectangle(3, 5, 7, 9, 10).to_dictionary()
         self.assertEqual([d], eval((Base.to_json_string([d]))))
+        self.assertTrue(len(Base.to_json_string([d])) == 53)
 
     def test_to_json_rectangle_two_dict(self):
         d1 = Rectangle(3, 5, 7, 9, 10).to_dictionary()
@@ -155,3 +157,80 @@ class TestBase_to_json(unittest.TestCase):
     def test_to_json_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Base.to_json_string([], 2)
+
+
+class TestBase_save_to_file(unittest.TestCase):
+    """Unittest to test the method save_to_file"""
+
+    @classmethod
+    def tearDownClass(cls):
+        try:
+            os.remove("Rectangle.json")
+        except IOError:
+            pass
+        try:
+            os.remove("Square.json")
+        except IOError:
+            pass
+        try:
+            os.remove("Base.json")
+        except IOError:
+            pass
+
+    def test_save_to_file_one_rectangle(self):
+        r = Rectangle(3, 5, 7, 9, 10)
+        Rectangle.save_to_file([r])
+        with open("Rectangle.json", "r", encoding="UTF8") as f:
+            self.assertEqual(len(f.read()), 53)
+
+    def test_save_to_file_two_rectangles(self):
+        r1 = Rectangle(3, 5, 7, 9, 10)
+        r2 = Rectangle(2, 4, 6, 8, 11)
+        Rectangle.save_to_file([r1, r2])
+        with open("Rectangle.json", "r", encoding="UTF8") as f:
+            self.assertEqual(len(f.read()), 106)
+
+    def test_save_to_file_one_square(self):
+        s = Square(3, 7, 9, 10)
+        Square.save_to_file([s])
+        with open("Square.json", "r", encoding="UTF8") as f:
+            self.assertEqual(len(f.read()), 39)
+
+    def test_save_to_file_two_squares(self):
+        s1 = Square(3, 7, 9, 10)
+        s2 = Square(2, 6, 8, 11)
+        Square.save_to_file([s1, s2])
+        with open("Square.json", "r", encoding="UTF8") as f:
+            self.assertEqual(len(f.read()), 78)
+
+    def test_save_to_file_class_name(self):
+        s = Square(3, 7, 9, 10)
+        Base.save_to_file([s])
+        with open("Base.json", "r", encoding="UTF8") as f:
+            self.assertEqual(len(f.read()), 39)
+
+    def test_save_to_file_overwrite(self):
+        s1 = Square(3, 7, 9, 10)
+        Square.save_to_file([s1])
+        s2 = Square(2, 6, 8, 11)
+        Square.save_to_file([s2])
+        with open("Square.json", "r", encoding="UTF8") as f:
+            self.assertEqual(len(f.read()), 39)
+
+    def test_save_to_file_empty_list(self):
+        Base.save_to_file([])
+        with open("Base.json", "r", encoding="UTF8") as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_to_file_None(self):
+        Base.save_to_file(None)
+        with open("Base.json", "r", encoding="UTF8") as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_save_to_file_no_arg(self):
+        with self.assertRaises(TypeError):
+            Base.save_to_file()
+
+    def test_save_to_file_more_than_one_arg(self):
+        with self.assertRaises(TypeError):
+            Base.save_to_file([], 2)
