@@ -130,6 +130,7 @@ class TestBase_to_json(unittest.TestCase):
     def test_to_json_rectangle_two_dict(self):
         d1 = Rectangle(3, 5, 7, 9, 10).to_dictionary()
         d2 = Rectangle(2, 4, 6, 8, 11).to_dictionary()
+        self.assertEqual([d1, d2], eval((Base.to_json_string([d1, d2]))))
         self.assertEqual(len(Base.to_json_string([d1, d2])), 106)
 
     def test_to_json_square_type(self):
@@ -138,11 +139,13 @@ class TestBase_to_json(unittest.TestCase):
 
     def test_to_json_square_one_dict(self):
         d = Square(3, 7, 9, 10).to_dictionary()
+        self.assertEqual([d], eval((Base.to_json_string([d]))))
         self.assertEqual(len(Base.to_json_string([d])), 39)
 
     def test_to_json_square_two_dict(self):
         d1 = Square(3, 7, 9, 10).to_dictionary()
         d2 = Square(2, 6, 8, 11).to_dictionary()
+        self.assertEqual([d1, d2], eval((Base.to_json_string([d1, d2]))))
         self.assertEqual(len(Base.to_json_string([d1, d2])), 78)
 
     def test_to_json_empty_list(self):
