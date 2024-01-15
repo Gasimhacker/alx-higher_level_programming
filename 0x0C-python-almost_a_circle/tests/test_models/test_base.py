@@ -18,6 +18,7 @@ from models.square import Square
 
 
 class TestBase_init(unittest.TestCase):
+    """Unittest to test the initialization of the base class"""
 
     def test_no_arg(self):
         b1 = Base()
