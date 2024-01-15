@@ -292,3 +292,55 @@ class TestBase_from_json(unittest.TestCase):
     def test_from_json_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Base.from_json_string([], 2)
+
+
+class TestBase_create(unittest.TestCase):
+    """Unittest to test the method create of the Base class"""
+
+    def test_create_rectangle_original(self):
+        r1 = Rectangle(3, 5, 7, 9, 11)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual("[Rectangle] (11) 7/9 - 3/5", str(r1))
+
+    def test_create_rectangle_new(self):
+        r1 = Rectangle(3, 5, 7, 9, 11)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual("[Rectangle] (11) 7/9 - 3/5", str(r1))
+
+    def test_create_rectangle_is(self):
+        r1 = Rectangle(3, 5, 7, 9, 11)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertIsNot(r1, r2)
+
+    def test_create_rectangle_equals(self):
+        r1 = Rectangle(3, 5, 7, 9, 11)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
+
+    def test_create_square_original(self):
+        s1 = Square(3, 5, 7, 1)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual("[Square] (1) 5/7 - 3", str(s1))
+
+    def test_create_square_new(self):
+        s1 = Square(3, 5, 7, 1)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual("[Square] (1) 5/7 - 3", str(s2))
+
+    def test_create_square_is(self):
+        s1 = Square(3, 5, 7, 1)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertIsNot(s1, s2)
+
+    def test_create_square_equals(self):
+        s1 = Square(3, 5, 7, 1)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertNotEqual(s1, s2)

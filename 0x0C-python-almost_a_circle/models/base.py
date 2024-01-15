@@ -70,7 +70,17 @@ class Base:
             If the list not None and not empty - a list of python objects
             Otherwise - an empty list
         """
-
         if json_string is None or json_string == "[]":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        if dictionary is None or dictionary == {}:
+            return None
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        else:
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
