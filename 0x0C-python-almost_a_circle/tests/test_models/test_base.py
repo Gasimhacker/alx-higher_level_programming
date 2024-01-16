@@ -379,7 +379,7 @@ class TestBase_load_from_file(unittest.TestCase):
         r2 = Rectangle(2, 4, 5, 6, 2)
         Rectangle.save_to_file([r1, r2])
         output = Rectangle.load_from_file()
-        self.assertTrue(all(isinstance(obj) == Rectangle for obj in output))
+        self.assertTrue(all(isinstance(obj, Rectangle) for obj in output))
 
     def test_load_from_file_first_square(self):
         s1 = Square(5, 1, 3, 3)
@@ -400,7 +400,7 @@ class TestBase_load_from_file(unittest.TestCase):
         s2 = Square(9, 5, 2, 3)
         Square.save_to_file([s1, s2])
         output = Square.load_from_file()
-        self.assertTrue(all(isinstance(obj) == Square for obj in output))
+        self.assertTrue(all(isinstance(obj, Square) for obj in output))
 
     def test_load_from_file_no_file(self):
         output = Square.load_from_file()
