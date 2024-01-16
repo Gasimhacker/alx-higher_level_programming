@@ -233,22 +233,22 @@ class TestBase_save_to_file(unittest.TestCase):
 
     def test_rectangle_save_to_file_empty_list(self):
         Rectangle.save_to_file([])
-        with open("Base.json", "r", encoding="UTF8") as f:
+        with open("Rectangle.json", "r", encoding="UTF8") as f:
             self.assertEqual(f.read(), "[]")
 
     def test_rectangle_save_to_file_None(self):
         Rectangle.save_to_file(None)
-        with open("Base.json", "r", encoding="UTF8") as f:
+        with open("Rectangle.json", "r", encoding="UTF8") as f:
             self.assertEqual(f.read(), "[]")
 
     def test_square_save_to_file_empty_list(self):
         Square.save_to_file([])
-        with open("Base.json", "r", encoding="UTF8") as f:
+        with open("Square.json", "r", encoding="UTF8") as f:
             self.assertEqual(f.read(), "[]")
 
     def test_square_save_to_file_None(self):
         Square.save_to_file(None)
-        with open("Base.json", "r", encoding="UTF8") as f:
+        with open("Square.json", "r", encoding="UTF8") as f:
             self.assertEqual(f.read(), "[]")
 
     def test_save_to_file_no_arg(self):
