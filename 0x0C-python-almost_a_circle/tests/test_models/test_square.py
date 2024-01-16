@@ -672,3 +672,7 @@ class TestSquare_to_dictionary(unittest.TestCase):
         r2 = Square(3, 5, 7)
         r2.update(**r1.to_dictionary())
         self.assertEqual(r1.to_dictionary(), r2.to_dictionary())
+
+
+if __name__ == "__main__":
+    unittest.main()
