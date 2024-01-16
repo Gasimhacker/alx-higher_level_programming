@@ -7,6 +7,7 @@ import json
 import csv
 import turtle
 
+
 class Base:
     """
 
@@ -44,8 +45,7 @@ class Base:
         """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-        if isinstance(list_dictionaries, list):
-            return json.dumps(list_dictionaries)
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
