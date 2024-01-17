@@ -255,6 +255,14 @@ class TestBase_save_to_file(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.save_to_file()
 
+    def test_rectangle_save_to_file_no_arg(self):
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file()
+
+    def test_square_save_to_file_no_arg(self):
+        with self.assertRaises(TypeError):
+            Square.save_to_file()
+
     def test_save_to_file_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Base.save_to_file([], 2)
