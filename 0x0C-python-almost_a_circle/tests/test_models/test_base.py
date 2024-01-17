@@ -167,7 +167,7 @@ class TestBase_save_to_file(unittest.TestCase):
     """Unittest to test the method save_to_file"""
 
     @classmethod
-    def tearDownClass(cls):
+    def tearDown(cls):
         try:
             os.remove("Rectangle.json")
         except IOError:

@@ -43,7 +43,7 @@ class Base:
         Returns:
             The JSON string representation
         """
-        if list_dictionaries is None or list_dictionaries == []:
+        if list_dictionaries is None:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -54,7 +54,7 @@ class Base:
         Args:
             list_objs (list): a list of instances who inhertis of Base
         """
-        if list_objs is not None:
+        if list_objs is not None and list_objs != []:
             json_list = [obj.to_dictionary() for obj in list_objs]
         else:
             json_list = []
