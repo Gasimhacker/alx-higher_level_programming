@@ -42,7 +42,8 @@ def solveNQ(n):
         """ Solve the Nqueens puzzle using the backtracking technique
 
         Args:
-            r (int): The row number
+            r (int): The row number that indicate where
+                     to start the backtrack process
         """
         if r == n:
             add_solution(board, res)
