@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 """
-A script that lists only the first State
-object from the database hbtn_0e_6_usa
+A script that lists all State objects from the
+database hbtn_0e_6_usa that contain the letter a
 """
 
 
@@ -19,8 +19,7 @@ if __name__ == "__main__":
 
     session = Session()
 
-    state = session.query(State).order_by(State.id).first()
-    if (state is not None):
+    q = session.query(State).order_by(State.id).filter(State.name.like('%a%'))
+
+    for state in q.all():
         print(f"{state.id}: {state.name}")
-    else:
-        print("Nothing")
