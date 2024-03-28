@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-# A script that sends a DELETE request to the URL
-# passed as the first argument and displays the body of the response
-
-curl "$1" -X OPTIONS
+#!/bin/bash
+# Take URL and displays all HTTP methods the server will accept.
+curl -sIX OPTIONS "$1" | grep Allow | cut -d ' ' -f2-
